@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: "Guide Silure Aude",
@@ -22,7 +23,9 @@ export default function RootLayout({
         enableSystem
         disableTransitionOnChange
       >
-        <main className="flex-grow">
+        {/* Le Header est ici */}
+        <Header />
+        <main className="flex-grow bg-background">
           {children}
         </main>
         {/* Le Footer est ici */}

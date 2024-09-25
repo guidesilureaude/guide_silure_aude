@@ -6,8 +6,7 @@ import { Facebook, Twitter, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className='w-full p-4 flex flex-col lg:flex-row items-center justify-between bg-background text-foreground'>
-      {/* Left Section: FlipIt Text */}
+    <footer className='w-full p-4 flex flex-col lg:flex-row items-center justify-between bg-ring text-foreground'>
       <div className='mb-4 lg:mb-0 lg:flex-1 flex justify-center lg:justify-start'>
         <span className='text-2xl lg:text-3xl font-extrabold tracking-wider'>Guide silure Aude</span>
       </div>
