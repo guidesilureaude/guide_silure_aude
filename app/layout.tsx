@@ -24,12 +24,12 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         {/* Le Header est ici */}
-        <Header />
+        {/* <Header /> */}
         <main className="flex-grow bg-background">
           {children}
         </main>
         {/* Le Footer est ici */}
-        <Footer />
+        {/* <Footer /> */}
       </ThemeProvider>
     </body>
   </html>
