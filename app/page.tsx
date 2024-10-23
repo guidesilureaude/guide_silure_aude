@@ -1,23 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowRight, ChevronDown, Send } from "lucide-react"
 
 export default function LandingPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -26,36 +15,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-indigo-100">
-      <header className={`fixed w-full transition-all duration-300 z-50 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600"
-          >
-            VotreLogo
-          </motion.h1>
-          <nav>
-            <ul className="flex space-x-6">
-              {['Accueil', 'Fonctionnalités', 'Tarifs', 'Contact'].map((item, index) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Link href={`#${item.toLowerCase()}`} className="text-gray-600 hover:text-indigo-600 transition-colors duration-300">
-                    {item}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </header>
-
+    <div>
       <main>
         <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden">
           <video 
@@ -67,7 +27,7 @@ export default function LandingPage() {
             <source src="/video.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la vidéo.
           </video>
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 bg-background opacity-50"></div>
           <div className="relative z-10 text-center">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -75,7 +35,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-6xl font-bold text-white mb-6 leading-tight"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                 Découvrez l&apos;Innovation
               </span>
             </motion.h2>
@@ -83,7 +43,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-2xl text-gray-200 mb-8"
+              className="text-2xl text-foreground mb-8"
             >
               Une expérience unique pour votre entreprise
             </motion.p>
@@ -92,7 +52,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="bg-gradient-to-r from-primary to-secondary text-foreground hover:from-secondary hover:to-primary transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Commencer <ArrowRight className="ml-2" />
               </Button>
             </motion.div>
@@ -102,19 +62,20 @@ export default function LandingPage() {
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           >
-            <ChevronDown className="text-white w-10 h-10" />
+            <ChevronDown className="text-foreground w-10 h-10" />
           </motion.div>
         </section>
+        
 
-        <section id="fonctionnalités" className="py-20 bg-white">
+        <section id="fonctionnalités" className="py-20 bg-secondary/60">
           <div className="container mx-auto px-4">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="text-4xl font-bold text-center mb-12 bg-clip-text text-foreground"
             >
-              Nos Fonctionnalités
+              Prestations
             </motion.h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((item) => (
@@ -124,23 +85,23 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: item * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="bg-background p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
-                  <h4 className="text-xl font-semibold mb-4 text-indigo-700">Fonctionnalité {item}</h4>
-                  <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <h4 className="text-xl font-semibold mb-4 text-foreground">Fonctionnalité {item}</h4>
+                  <p className="text-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="tarifs" className="py-20 bg-gradient-to-r from-purple-100 to-indigo-100">
+        <section id="tarifs" className="py-20 bg-primary/50">
           <div className="container mx-auto px-4 text-center">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-foreground"
             >
               Nos Tarifs
             </motion.h3>
@@ -151,10 +112,10 @@ export default function LandingPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="bg-background p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <h4 className="text-2xl font-bold mb-4 text-indigo-600">{plan}</h4>
-                  <p className="text-4xl font-bold mb-6">{`${(index + 1) * 9.99}€`}<span className="text-sm text-gray-500">/mois</span></p>
+                  <h4 className="text-2xl font-bold mb-4 text-foreground">{plan}</h4>
+                  <p className="text-4xl font-bold mb-6">{`${(index + 1) * 9.99}€`}<span className="text-sm text-background">/mois</span></p>
                   <ul className="text-left mb-6 space-y-2">
                     {['Fonctionnalité 1', 'Fonctionnalité 2', 'Fonctionnalité 3'].map((feature, i) => (
                       <li key={i} className="flex items-center">
@@ -163,7 +124,7 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white transition-colors duration-300">
+                  <Button className="w-full bg-foreground/50 hover:bg-primary text-white transition-colors duration-300">
                     Choisir ce plan
                   </Button>
                 </motion.div>
@@ -172,13 +133,13 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="contact" className="py-20 bg-white">
+        <section id="contact" className="py-20 bg-secondary/50">
           <div className="container mx-auto px-4">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600"
+              className="text-4xl font-bold text-center mb-12 bg-clip-text text-foreground"
             >
               Contactez-nous
             </motion.h3>
@@ -192,24 +153,24 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Nom</label>
                     <Input type="text" id="name" name="name" required placeholder="Votre nom" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">Email</label>
                     <Input type="email" id="email" name="email" required placeholder="votre@email.com" />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Sujet</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">Sujet</label>
                   <Input type="text" id="subject" name="subject" required placeholder="Sujet de votre message" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Message</label>
                   <Textarea id="message" name="message" rows={4} required placeholder="Votre message ici..." />
                 </div>
                 <div>
-                  <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <Button type="submit" className="w-full text-foreground hover:bg-foreground/50  transition-all duration-300 shadow-lg hover:shadow-xl">
                     Envoyer le message <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -218,38 +179,6 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h5 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">À Propos</h5>
-              <p className="text-gray-400">Nous sommes une entreprise innovante dédiée à fournir les meilleures solutions pour nos clients.</p>
-            </div>
-            <div>
-              <h5 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">Liens Rapides</h5>
-              <ul className="space-y-2">
-                {['Accueil', 'Fonctionnalités', 'Tarifs', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <Link href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-300">{item}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h5 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">Suivez-nous</h5>
-              <div className="flex space-x-4">
-                {['Facebook', 'Twitter', 'LinkedIn'].map((item) => (
-                  <a key={item} href="#" className="text-gray-400 hover:text-white transition-colors duration-300">{item}</a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} VotreEntreprise. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
