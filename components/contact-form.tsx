@@ -1,74 +1,133 @@
 'use client'
 
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { Button } from "@/components/ui/button"
+import { useState } from 'react'
+import { motion, } from 'framer-motion'
+import { Loader2, Send, CheckCircle } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-
-const formSchema = z.object({
-    lastname: z.string().min(2, { message: "Name must be at least 2 characters." }),
-    firstname: z.string().min(2, { message: "Name must be at least 2 characters." }),
-    email: z.string().email({ message: "Invalid email address." }),
-    message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-})
-
-type FormData = z.infer<typeof formSchema>
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 
 export default function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset
-  } = useForm<FormData>({
-    resolver: zodResolver(formSchema)
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const onSubmit = (data: FormData) => {
-    // Here you would typically send the form data to your server
-    console.log(data)
-    // Reset the form after submission
-    reset()
-    // You could also show a success message to the user here
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    // Simuler l'envoi du formulaire
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+  }
+
+  const inputVariants = {
+    focus: { scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 10 } }
+  }
+
+  const buttonVariants = {
+    hover: { scale: 1.05, boxShadow: '0 0 15px rgba(0, 0, 0, 0.2)' },
+    tap: { scale: 0.95 }
   }
 
   return (
-    <div className="py-12 bg-background">
-      <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-accent text-center mb-8">Me Contacter</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div>
-            <Label htmlFor="lastname">Nom</Label>
-            <Input id="lastname" {...register('lastname')} placeholder="Doe" />
-            {errors.lastname && <p className="text-red-500 text-sm mt-1">{errors.lastname.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="firstname">Prénom</Label>
-            <Input id="firstname" {...register('firstname')} placeholder="John" />
-            {errors.firstname && <p className="text-red-500 text-sm mt-1">{errors.firstname.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" {...register('email')} placeholder="johndoe@gmail.com" />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="message">Message</Label>
-            <Textarea 
-              id="message"
-              {...register('message')}
-              placeholder="Ecrivez ici votre message"
-              className="resize-none"
-            />
-            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
-          </div>
-          <Button type="submit" className="w-full">Send Message</Button>
-        </form>
-      </div>
+    <div>
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold">Contactez-moi</CardTitle>
+          <CardDescription>Pour plus de renseignement, envoyez moi un message et je vous répondrai rapidement.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {!isSubmitted ? (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name">Nom</Label>
+                <motion.div variants={inputVariants} whileFocus="focus">
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formState.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <motion.div variants={inputVariants} whileFocus="focus">
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <motion.div variants={inputVariants} whileFocus="focus">
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formState.message}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full h-32 transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                  />
+                </motion.div>
+              </div>
+              <motion.div
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-background font-semibold py-2 px-4 rounded-md transition-all duration-300"
+                >
+                  {isSubmitting ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2 h-4 w-4" />
+                  )}
+                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                </Button>
+              </motion.div>
+            </form>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center space-y-4"
+            >
+              <CheckCircle className="mx-auto h-16 w-16 text-green-500" />
+              <h3 className="text-2xl font-bold text-green-700">Message envoyé !</h3>
+              <p className="text-gray-600">Merci de nous avoir contacté. Nous vous répondrons bientôt.</p>
+            </motion.div>
+          )}
+        </CardContent>
+        <CardFooter className="justify-center">
+          <p className="text-sm text-gray-500">
+            Nous respectons votre vie privée et ne partagerons jamais vos informations.
+          </p>
+        </CardFooter>
+      </Card>
     </div>
   )
 }
