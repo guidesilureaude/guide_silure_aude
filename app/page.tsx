@@ -25,30 +25,36 @@ export default function LandingPage() {
           </video>
           <div className="absolute inset-0 bg-background opacity-50"></div>
             <div className="relative z-10 text-center">
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-6xl font-bold mb-6 leading-tight"
-              >
-                <span className="bg-clip-text text-foreground bg-background">
-                  GUIDE SILURE AUDE
-                </span>
-              </motion.h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-7xl font-bold mb-6 leading-tight tracking-wider"
+              style={{ fontFamily: '"ApeMount", sans-serif' }}
+            >
+              <span className="bg-clip-text text-foreground bg-background">
+                GUIDE SILURE AUDE
+              </span>
+            </motion.h2>
+
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-2xl text-foreground mb-8"
+                style={{ fontFamily: '"ApeMount", sans-serif' }}
               >
-                Une expérience unique pour votre entreprise
+                Plongez dans une aventure extrême !
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <Button className="bg-gradient-to-r from-primary to-secondary text-foreground hover:from-secondary hover:to-primary transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <Button 
+                className="bg-gradient-to-r from-primary to-secondary text-foreground hover:from-secondary hover:to-primary transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                style={{ fontFamily: '"ApeMount", sans-serif' }}
+                >
                   Commencer <ArrowRight className="ml-2" />
                 </Button>
               </motion.div>
@@ -69,6 +75,7 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="text-5xl font-extrabold text-center text-foreground mb-8"
+              style={{ fontFamily: '"ApeMount", sans-serif' }}
             >
               Plongez dans une aventure extrême !
             </motion.h1>
