@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ModeToggle } from "./toggle.mode";
 import Image from "next/image"; // Import de l'image
 import { HiMenu } from "react-icons/hi"; // Import d'une icône de menu
+import { Navbar } from "@/components/navbar"; // Import de la Navbar
 
 const Header = () => {
   // Détection du scroll
@@ -41,29 +41,9 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Navigation centrée */}
+        {/* Navbar */}
         <div className="flex-grow flex justify-center">
-          {(!isScrolled || isMenuOpen) && (
-            <nav>
-              <ul className="flex space-x-6">
-                {["Accueil", "Fonctionnalités", "Tarifs", "Contact"].map((item, index) => (
-                  <motion.li
-                    key={item}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Link
-                      href={`#${item.toLowerCase()}`}
-                      className="text-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      {item}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </nav>
-          )}
+          {(!isScrolled || isMenuOpen) && <Navbar />}
         </div>
 
         {/* Bouton de menu et icônes de mode */}

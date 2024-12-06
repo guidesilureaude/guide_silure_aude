@@ -1,11 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { ArrowRight, ChevronDown, } from "lucide-react"
+import { ChevronDown, } from "lucide-react"
 import ContactForm from '@/components/contact-form'
 import ServicesShowcase from '@/components/prestation-carrousel'
-import DynamicPricing from '@/components/tarif-component'
 import Header from '@/components/header'
 
 export default function LandingPage() {
@@ -51,12 +49,6 @@ export default function LandingPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <Button 
-                className="bg-gradient-to-r from-primary to-secondary text-foreground hover:from-secondary hover:to-primary transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-                style={{ fontFamily: '"ApeMount", sans-serif' }}
-                >
-                  Commencer <ArrowRight className="ml-2" />
-                </Button>
               </motion.div>
             </div>
           <motion.div 
@@ -98,9 +90,9 @@ export default function LandingPage() {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="bg-white bg-opacity-20 text-foreground p-6 rounded-lg shadow-lg"
+                className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg"
               >
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed text-center">
                   Montez à bord de nos float-tubes, robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité, et sensations garanties !
                 </p>
               </motion.div>
@@ -108,7 +100,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="bg-white bg-opacity-20 text-foreground p-6 rounded-lg shadow-lg"
+                className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg"
               >
                 <p className="text-lg leading-relaxed">
                   Défiez le Silure à la verticale, au leurre de surface ou avec ma spécialité : le clonk-teaser. Matériel robuste, pour des poissons dépassant 2m50 et 100kg !
@@ -120,7 +112,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
-              className="bg-white bg-opacity-20 text-foreground p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8"
+              className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8"
             >
               <p className="text-lg leading-relaxed text-center">
                 Que vous soyez débutant ou expert, je vous propose des journées conviviales, remplies de rires et de bonnes vibrations ! De 13 à 80 ans, venez vivre une aventure unique !
@@ -149,11 +141,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="tarifs" className="py-20 bg-gradient-to-b from-primary/50 via-primary/40 to-secondary/50">
-          <DynamicPricing/>
-        </section>
-
-        <section id="contact" className="py-20 bg-gradient-to-b from-secondary/50 via-secondary/40 to-background flex justify-center items-center">
+        <section id="contact" className="py-20 bg-gradient-to-b from-primary/50 via-primary/40 to-secondary/50 flex justify-center items-center">
           <ContactForm/>
         </section>
       </main>
