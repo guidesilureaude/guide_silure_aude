@@ -22,35 +22,36 @@ export default function LandingPage() {
             Votre navigateur ne supporte pas la vidéo.
           </video>
           <div className="absolute inset-0 bg-background opacity-50"></div>
-            <div className="relative z-10 text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-7xl font-bold mb-6 leading-tight tracking-wider"
-              style={{ fontFamily: '"ApeMount", sans-serif' }}
-            >
-              <span className="bg-clip-text text-foreground bg-background">
-                GUIDE SILURE AUDE
-              </span>
-            </motion.h2>
+<div className="relative z-10 text-center">
+  <motion.h2 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="text-9xl font-bold mb-10 leading-tight tracking-widest"
+    style={{ fontFamily: '"DCC-Ash", sans-serif' }}
+  >
+    <span className="bg-clip-text text-foreground bg-background">
+      GUIDE SILURE AUDE
+    </span>
+  </motion.h2>
 
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-2xl text-foreground mb-8"
-                style={{ fontFamily: '"ApeMount", sans-serif' }}
-              >
-                Plongez dans une aventure extrême !
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-              </motion.div>
-            </div>
+  <motion.p 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
+    className="text-4xl text-foreground mb-12"
+    style={{ fontFamily: '"DCC-Ash", sans-serif' }}
+  >
+    Plongez dans une aventure extrême !
+  </motion.p>
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 0.6 }}
+  >
+  </motion.div>
+</div>
+
           <motion.div 
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
             animate={{ y: [0, 10, 0] }}
@@ -60,14 +61,19 @@ export default function LandingPage() {
           </motion.div>
         </section>
         
-        <section id="presentation" className="py-20 bg-gradient-to-b from-primary/60 via-primary/50 to-secondary/60">
+        <section id="presentation" className="py-20 relative">
+        {/* Couche de dégradé */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/50 to-secondary/60"></div>
+        
+        {/* Contenu principal */}
+        <div className="relative z-10">
           <div className="container mx-auto px-4">
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="text-5xl font-extrabold text-center text-foreground mb-8"
-              style={{ fontFamily: '"ApeMount", sans-serif' }}
+              style={{ fontFamily: '"DCC-Ash", sans-serif' }}
             >
               Plongez dans une aventure extrême !
             </motion.h1>
@@ -75,7 +81,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-lg text-center text-foreground max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-center text-gray-700 dark:text-white max-w-3xl mx-auto leading-relaxed"
             >
               Découvrez une expérience de pêche inoubliable avec Alex, votre guide certifié. Partez à la conquête du SILURE, notre géant des eaux douces, sur les rivières et lacs d’Aude et d’Ariège.
             </motion.p>
@@ -90,9 +96,9 @@ export default function LandingPage() {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg"
+                className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg"
               >
-                <p className="text-lg leading-relaxed text-center">
+                <p className="text-lg text-gray-700 leading-relaxed text-center">
                   Montez à bord de nos float-tubes, robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité, et sensations garanties !
                 </p>
               </motion.div>
@@ -100,9 +106,9 @@ export default function LandingPage() {
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg"
+                className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg"
               >
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Défiez le Silure à la verticale, au leurre de surface ou avec ma spécialité : le clonk-teaser. Matériel robuste, pour des poissons dépassant 2m50 et 100kg !
                 </p>
               </motion.div>
@@ -112,9 +118,9 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
-              className="bg-white bg-opacity-50 text-foreground p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8"
+              className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8"
             >
-              <p className="text-lg leading-relaxed text-center">
+              <p className="text-lg leading-relaxed text-center text-gray-700">
                 Que vous soyez débutant ou expert, je vous propose des journées conviviales, remplies de rires et de bonnes vibrations ! De 13 à 80 ans, venez vivre une aventure unique !
               </p>
             </motion.div>
@@ -133,7 +139,9 @@ export default function LandingPage() {
               </a>
             </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
+
 
         <section id="prestations" className="py-20 bg-gradient-to-b from-secondary/60 via-secondary/50 to-primary/50">
           <div className="container mx-auto px-4">

@@ -8,13 +8,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
 
 export default function ContactForm() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -26,7 +27,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 2000)) // Simulation d'envoi
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
@@ -41,10 +42,10 @@ export default function ContactForm() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <p className="text-xl font-semibold text-gray-700 sm:text-2xl">
+          <p className="text-xl font-semibold text-gray-700 sm:text-2xl dark:text-white">
             💬 Besoin d&apos;un devis ou d&apos;une information ?
           </p>
-          <p className="text-gray-500 sm:text-lg">
+          <p className="text-gray-500 sm:text-lg dark:text-white">
             Je suis là pour répondre à toutes vos demandes. Cliquez ci-dessous pour me contacter.
           </p>
           <Button
@@ -103,6 +104,20 @@ export default function ContactForm() {
                       required
                       className="w-full transition-all duration-300 focus:ring-2 focus:ring-purple-400"
                     />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Sujet</Label>
+                    <Select>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Choisir" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="devis">Devis</SelectItem>
+                        <SelectItem value="informations">Demande d&apos;informations</SelectItem>
+                        <SelectItem value="partenariat">Partenariat</SelectItem>
+                        <SelectItem value="autres">Autres</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>

@@ -30,6 +30,12 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Animation pêche au coup tout publics, à la recherche de différents poissons.",
   },
+  {
+    title: "Autres animations",
+    href: "/prestations/autres-animations",
+    description:
+      "Pour des prestations sur mesure, contactez-moi pour en discuter.",
+  },
 ];
 
 export function Navbar() {
