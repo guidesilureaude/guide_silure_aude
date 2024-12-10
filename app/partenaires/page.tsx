@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from '@/components/header';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 
 const PartnersPage = () => {
   const partners = [
@@ -49,7 +49,8 @@ const PartnersPage = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg text-center max-w-3xl mx-auto mb-16"
         >
-          Nous sommes fiers de collaborer avec des partenaires de confiance pour vous offrir une expérience de pêche unique et inoubliable.
+          Nous sommes fiers de collaborer avec des partenaires de confiance pour
+          vous offrir une expérience de pêche unique et inoubliable.
         </motion.p>
 
         {/* Partners Grid */}
@@ -62,9 +63,11 @@ const PartnersPage = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg flex flex-col items-center"
             >
-              <img
+              <Image
                 src={partner.logo}
                 alt={`${partner.name} logo`}
+                width={128} // ou ajustez selon vos besoins
+                height={128} // ou ajustez selon vos besoins
                 className="w-32 h-32 object-contain mb-4"
               />
               <h2 className="text-xl font-bold mb-2">{partner.name}</h2>

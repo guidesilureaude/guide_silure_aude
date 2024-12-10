@@ -22,35 +22,39 @@ export default function LandingPage() {
             Votre navigateur ne supporte pas la vidéo.
           </video>
           <div className="absolute inset-0 bg-background opacity-50"></div>
-<div className="relative z-10 text-center">
-  <motion.h2 
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.2 }}
-    className="text-9xl font-bold mb-10 leading-tight tracking-widest"
-    style={{ fontFamily: '"DCC-Ash", sans-serif' }}
-  >
-    <span className="bg-clip-text text-foreground bg-background">
-      GUIDE SILURE AUDE
-    </span>
-  </motion.h2>
-
-  <motion.p 
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.4 }}
-    className="text-4xl text-foreground mb-12"
-    style={{ fontFamily: '"DCC-Ash", sans-serif' }}
-  >
-    PLONGEZ DANS UNE AVENTURE EXTREME !
-  </motion.p>
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5, delay: 0.6 }}
-  >
-  </motion.div>
-</div>
+            <div className="relative z-10 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-10 text-center font-bold leading-tight tracking-widest whitespace-nowrap"
+              style={{
+                fontSize: "clamp(3rem, 8vw, 8rem)", // Ajuste la taille du texte pour s'adapter à l'écran
+                fontFamily: '"DCC-Ash", sans-serif',
+              }}
+            >
+              <span className="bg-clip-text text-foreground bg-background">
+                GUIDE SILURE AUDE
+              </span>
+            </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-4xl text-foreground mb-12"
+                style={{
+                  fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+                  fontFamily: '"DCC-Ash", sans-serif' }}
+              >
+                PLONGEZ DANS UNE AVENTURE EXTREME !
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+              </motion.div>
+            </div>
 
           <motion.div 
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
