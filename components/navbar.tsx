@@ -86,10 +86,10 @@ export function Navbar() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink
-            href="/contact"
+            href="/partenaires"
             className={cn(navigationMenuTriggerStyle(), "text-lg font-bold")}
           >
-            Contact
+            Partenaires
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -105,7 +105,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWit
           <a
             ref={ref}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-green-800/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent focus:text-accent-foreground",
               className
             )}
             {...props}
@@ -113,7 +113,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWit
             <div className="text-lg font-bold leading-none">{title}</div>
             <p
               className={cn(
-                "line-clamp-2 text-sm leading-snug text-muted-foreground transition-colors hover:text-white"
+                "line-clamp-2 text-sm leading-snug text-muted-foreground transition-colors dark:text-white"
               )}
             >
               {children}

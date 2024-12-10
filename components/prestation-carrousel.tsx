@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Données de services
 const services = [
@@ -20,21 +21,25 @@ const services = [
     title: "Guidage Silure",
     description: "Guidage silure sur le fleuve Aude, du bord ou en float tube. Sensation garantie !",
     image: "/test2.jpg",
+    slug: "/guidage-silure",
   },
   {
     title: "Animation pêche au coup",
     description: "Animation pêche au coup pour les enfants et les personnes en situation de handicap.",
     image: "/test.png",
+    slug: "/animation-peche-au-coup",
   },
   {
     title: "Animation pêche enfants",
     description: "Animation pêche pour les enfants, du bord à la recherche des moustachus.",
     image: "/test3.jpg",
+    slug: "/animation-peche-enfants",
   },
   {
     title: "Autres animations",
     description: "Pour des prestations sur mesure a destination des associations, contactez-moi pour en discuter.",
     image: "/test4.jpg",
+    slug: "/autres-animations",
   },
 ]
 
@@ -93,9 +98,13 @@ export default function ServicesShowcase() {
                       </p>
 
                       {/* Bouton pour en savoir plus */}
-                      <Button className="mt-4 w-3/4 bg-foreground text-primary font-semibold hover:bg-primary/90 hover:scale-95 hover:text-black transition-all duration-300 py-2 px-6 rounded-md shadow-lg">
-                        En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                      <Link
+                        href={`/prestations/${service.slug}`}
+                      >
+                        <Button className="mt-4 w-3/4 bg-foreground text-primary font-semibold hover:bg-primary/90 hover:scale-95 hover:text-black transition-all duration-300 py-2 px-6 rounded-md shadow-lg">
+                          En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 </motion.div>

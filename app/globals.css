@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "aos/dist/aos.css";
+
+
 @font-face {
   font-family: 'ApeMount';
   src: url('/fonts/aApeMount.woff2') format('woff2');
@@ -37,16 +40,42 @@ body {
   min-height: 100vh;
 }
 
-/* globals.css */
 #presentation {
   background-image: 
-    url('/alex.png'), 
-    url('/client.png');
-  background-position: left center, right center;
+    url('/alex3.png'), 
+    url('/client2.png');
+  background-position: left center, right 180px;
   background-repeat: no-repeat, no-repeat;
-  background-size: contain, contain;
+  background-size: 30%, 26%; /* Définit leur taille par défaut */
   position: relative;
 }
+
+@media (max-width: 1024px) { /* Écrans moyens */
+  #presentation {
+    background-image: 
+      url('/alex3.png'), 
+      url('/client2.png');
+    background-position: left center, right center; /* Ajuste la position */
+    background-size: 50%, 40%; /* Réduit la taille */
+  }
+}
+
+@media (max-width: 768px) { /* Écrans mobiles */
+  #presentation {
+    background-image: url('/alex.png'); /* Une seule image */
+    background-position: center; /* Centre l'image */
+    background-size: 70%; /* Taille réduite */
+  }
+}
+
+@media (max-width: 480px) { /* Très petits écrans */
+  #presentation {
+    background-image: url('/alex.png');
+    background-position: center; 
+    background-size: 90%; /* Agrandit légèrement pour occuper plus d'espace */
+  }
+}
+
 
 
 

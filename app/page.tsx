@@ -42,7 +42,7 @@ export default function LandingPage() {
     className="text-4xl text-foreground mb-12"
     style={{ fontFamily: '"DCC-Ash", sans-serif' }}
   >
-    Plongez dans une aventure extrême !
+    PLONGEZ DANS UNE AVENTURE EXTREME !
   </motion.p>
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
@@ -75,7 +75,7 @@ export default function LandingPage() {
               className="text-5xl font-extrabold text-center text-foreground mb-8"
               style={{ fontFamily: '"DCC-Ash", sans-serif' }}
             >
-              Plongez dans une aventure extrême !
+              PLONGEZ DANS UNE AVENTURE EXTREME !
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
