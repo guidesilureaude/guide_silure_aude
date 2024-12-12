@@ -38,7 +38,8 @@ const PartnersPage = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-extrabold text-center mb-10"
+          className="text-6xl  text-center mb-10"
+          style={{ fontFamily: '"DCC-Ash", sans-serif' }}
         >
           Nos Partenaires
         </motion.h1>

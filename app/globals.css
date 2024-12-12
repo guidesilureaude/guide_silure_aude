@@ -44,7 +44,7 @@ body {
   background-image: 
     url('/alex3.png'), 
     url('/client2.png');
-  background-position: left center, right 180px;
+  background-position: -50px center, right 180px;
   background-repeat: no-repeat, no-repeat;
   background-size: 30%, 26%; /* Définit leur taille par défaut */
   position: relative;

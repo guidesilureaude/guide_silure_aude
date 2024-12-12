@@ -14,7 +14,10 @@ export default function PricingPage() {
         {/* Contenu principal */}
         <div className="pt-44 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-extrabold text-center mb-8">
+            <h1
+              className="text-6xl text-center mb-8"
+              style={{ fontFamily: '"DCC-Ash", sans-serif' }}
+            >
               Nos Tarifs
             </h1>
             <p className="text-xl text-center mb-12">

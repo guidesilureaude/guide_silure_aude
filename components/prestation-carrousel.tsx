@@ -52,8 +52,9 @@ export default function ServicesShowcase() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center mb-10"
+        style={{ fontFamily: '"DCC-Ash", sans-serif' }}
       >
-        <h2 className="text-3xl font-bold text-gray-700 dark:text-white sm:text-4xl">
+        <h2 className="text-3xl text-gray-700 dark:text-white sm:text-4xl">
           Nos Prestations
         </h2>
       </motion.div>

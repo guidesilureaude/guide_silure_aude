@@ -27,7 +27,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-10 text-center font-bold leading-tight tracking-widest whitespace-nowrap"
+              className="mb-10 text-center leading-tight tracking-widest whitespace-nowrap"
               style={{
                 fontSize: "clamp(3rem, 8vw, 8rem)", // Ajuste la taille du texte pour s'adapter à l'écran
                 fontFamily: '"DCC-Ash", sans-serif',
@@ -76,7 +76,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-5xl font-extrabold text-center text-foreground mb-8"
+              className="text-5xl text-center text-foreground mb-8"
               style={{ fontFamily: '"DCC-Ash", sans-serif' }}
             >
               PLONGEZ DANS UNE AVENTURE EXTREME !

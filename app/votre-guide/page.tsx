@@ -27,7 +27,7 @@ export default function VotreGuidePage() {
 
       {/* Section de l'image de couverture */}
       <motion.div
-        className="relative h-[50vh] mt-[60px] overflow-hidden"
+        className="relative h-[50vh] sm:h-[60vh] md:h-[70vh]  overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -36,22 +36,25 @@ export default function VotreGuidePage() {
           src="/votre-guide_couverture.jpg"
           alt="Guide de pêche en action"
           fill={true}
-          className="brightness-50 object-cover"
+          className="object-cover w-full h-full"
         />
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+        className="absolute inset-0 flex items-center justify-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        style={{ fontFamily: '"DCC-Ash", sans-serif' }}
+      >
+        <h1
+          className="text-6xl md:text-6xl text-white text-center tracking-wider"
+          style={{ wordSpacing: '0.2em' }} // Ajoute un espacement entre les mots
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
-            Votre Guide de Pêche
-          </h1>
-        </motion.div>
+          VOTRE GUIDE DE PECHE
+        </h1>
       </motion.div>
-
+      </motion.div>
       {/* Contenu principal */}
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-2 py-12">
         {/* À propos */}
         <motion.section
           className="mb-16"
@@ -66,28 +69,44 @@ export default function VotreGuidePage() {
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
+              className="-ml-40"
             >
               <Image
-                src="/votre-guide_alex.jpg"
+                src="/alex4.png"
                 alt="Portrait du guide"
-                width={300}
+                width={1000}
                 height={300}
-                className="rounded-full shadow-lg"
+               
               />
             </motion.div>
             <div>
               <p className="text-lg mb-4 leading-relaxed text-justify">
-                Je me nomme <strong>Alexis Boreau</strong>, un pur produit de
-                l’Aude depuis maintenant 25 ans. <br />
-                La nature, la pêche et moi menons une grande histoire d’amour
-                depuis que mes jambes m’ont permis de faire mes premiers pas.
+                Je me nomme <strong>Alexis Boreau</strong>, un pur produit de l’Aude depuis maintenant 25 ans.
+                <br />
+                La nature, la pêche et moi menons une grande histoire d’amour depuis que mes jambes m’ont permis de faire mes premiers pas.
               </p>
-              <p className="text-lg">
-                Découvrez les secrets des meilleurs spots de pêche et
-                perfectionnez vos techniques avec un professionnel dévoué à
-                votre réussite.
+              <p className="text-lg mb-4 leading-relaxed text-justify">
+                Cet amour du monde extérieur m’est venu grâce à mes grands-parents. J’ai pu découvrir les reptiles, les insectes, les oiseaux, ainsi que la flore locale, 
+                pour ensuite être initié à la pêche de loisir.
+              </p>
+              <p className="text-lg mb-4 leading-relaxed text-justify">
+                Comme nous tous, j&apos;ai commencé par la pêche au coup avec un bambou, du nylon et un hameçon. 
+                J’ai rapidement évolué dans le milieu de la pêche de loisir en ciblant par la suite les carnassiers avec la pêche du sandre et du brochet sous toutes ses formes, 
+                avant de tomber amoureux du plus gros poisson d’eau douce !
+              </p>
+              <p className="text-lg mb-4 leading-relaxed text-justify">
+                Un jour, vient le drame : je perds un de mes meilleurs amis dans un accident de voiture et tombe dans une dépression. 
+                La seule façon pour moi de me sentir à nouveau vivant à l’intérieur de moi était de pratiquer la pêche au moindre moment de temps libre.
+              </p>
+              <p className="text-lg mb-4 leading-relaxed text-justify">
+                Le midi à la pause déjeuner au travail, le soir en sortant du travail, et quelquefois même le matin avant d’aller travailler. 
+                C’est là que j’ai pris conscience des bienfaits de la pêche et que je devais partager ça avec vous, mes chers clients.
+              </p>
+              <p className="text-lg mb-4 leading-relaxed text-justify">
+                Je me suis donc lancé en février 2024 : j’ai tout plaqué pour devenir moniteur, animateur et guide de pêche pour l’année 2025.
               </p>
             </div>
+
           </div>
         </motion.section>
 
@@ -167,7 +186,7 @@ export default function VotreGuidePage() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="mb-4 italic">"{testimonial.text}"</p>
+                <p className="mb-4 italic">&quot;{testimonial.text}&quot;</p>
                 <p className="font-semibold">- {testimonial.name}</p>
               </motion.div>
             ))}
