@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
               À Propos
             </h5>
             <p className="text-gray-400">
-              Nous sommes une entreprise innovante dédiée à fournir les meilleures solutions pour nos clients.
+              Entreprise individuelle <br /> 11290-Montréal <br /> SIRET: 93835579900017
             </p>
           </div>
           <div>
@@ -33,23 +33,20 @@ const Footer = () => {
           </div>
           <div>
             <h5 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-              Suivez-nous
+              Suivez-moi
             </h5>
-            <div className="flex space-x-4">
-              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <Facebook className="text-gray-400 hover:text-white transition-colors duration-300" size={24} />
+            <div className="flex space-x-4 ">
+              <Link href="https://www.facebook.com/people/Alex-Guide-Silure-Aude/100005099056688/" target="_blank" rel="noopener noreferrer">
+                <Facebook className="text-gray-400 hover:text-white hover:scale-110 transition-colors duration-300" size={24} />
               </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Twitter className="text-gray-400 hover:text-white transition-colors duration-300" size={24} />
-              </Link>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <Instagram className="text-gray-400 hover:text-white transition-colors duration-300" size={24} />
+              <Link href="https://www.instagram.com/guidesilureaude/" target="_blank" rel="noopener noreferrer">
+                <Instagram className="text-gray-400 hover:text-white hover:scale-110 transition-colors duration-300" size={24} />
               </Link>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} VotreEntreprise. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Guide Silure Aude. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

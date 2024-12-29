@@ -45,21 +45,28 @@ export function ServiceLayout({ title, description, imageSrc, additionalImages, 
             {description}
           </p>
         </motion.div>
+        
+        {/* Première image en couverture réduite en hauteur */}
+        <div className="mt-10 w-full h-80 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={imageSrc}
+              alt={title}
+              layout="fill" // L'image occupe toute la largeur et la hauteur de son parent
+              objectFit="cover" // Recouvre toute l'image sans déformation
+              className="rounded-lg shadow-xl"
+            />
+          </motion.div>
+        </div>
+
+        {/* Contenu sous l'image */}
         <div className="mt-10 flex flex-col lg:flex-row">
           <div className="lg:w-2/3 lg:pr-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Image
-                src={imageSrc}
-                alt={title}
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl"
-              />
-            </motion.div>
             <motion.div
               ref={ref}
               initial="hidden"
@@ -73,6 +80,8 @@ export function ServiceLayout({ title, description, imageSrc, additionalImages, 
               {children}
             </motion.div>
           </div>
+          
+          {/* Section des autres images à droite sous la première image */}
           <div className="lg:w-1/3 mt-8 lg:mt-0">
             <div className="sticky top-8 space-y-8">
               {additionalImages.map((img, index) => (

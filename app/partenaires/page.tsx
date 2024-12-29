@@ -8,22 +8,10 @@ import Image from 'next/image';
 const PartnersPage = () => {
   const partners = [
     {
-      name: 'Fishing Gear Co.',
-      logo: '/alex.png',
-      description: 'Fournisseur officiel d’équipements de pêche haut de gamme.',
-      website: 'https://fishinggear.com',
-    },
-    {
-      name: 'Boat Adventures',
-      logo: '/alex2.png',
-      description: 'Spécialistes des embarcations pour les activités nautiques.',
-      website: 'https://boatadventures.com',
-    },
-    {
-      name: 'Nature Tours',
-      logo: '/alex3.png',
-      description: 'Organisation de séjours en pleine nature.',
-      website: 'https://naturetours.com',
+      name: 'JunkyCat',
+      logo: '/logo-junky.png',
+      description: "Magasin en ligne d'articles de pêche spécialisés pour le silure",
+      website: 'https://junkycat.net/',
     },
   ];
 
@@ -33,12 +21,12 @@ const PartnersPage = () => {
       <Header />
 
       {/* Page Content */}
-      <main className="container mx-auto px-4 py-44">
+      <main className="flex flex-col items-center justify-center min-h-screen px-4 py-44">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl  text-center mb-10"
+          className="text-6xl text-center mb-10"
           style={{ fontFamily: '"DCC-Ash", sans-serif' }}
         >
           Nos Partenaires
@@ -54,8 +42,8 @@ const PartnersPage = () => {
           vous offrir une expérience de pêche unique et inoubliable.
         </motion.p>
 
-        {/* Partners Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Partners Grid - centered on one partner */}
+        <div className="flex justify-center items-center">
           {partners.map((partner, index) => (
             <motion.div
               key={index}
@@ -67,9 +55,9 @@ const PartnersPage = () => {
               <Image
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                width={128} // ou ajustez selon vos besoins
-                height={128} // ou ajustez selon vos besoins
-                className="w-32 h-32 object-contain mb-4"
+                width={200} // Augmentation de la largeur
+                height={200} // Augmentation de la hauteur
+                className="w-48 h-48 object-contain mb-6"
               />
               <h2 className="text-xl font-bold mb-2">{partner.name}</h2>
               <p className="text-center text-gray-700 dark:text-gray-300 mb-4">

@@ -46,7 +46,7 @@ export default function ContactForm() {
             💬 Besoin d&apos;un devis ou d&apos;une information ?
           </p>
           <p className="text-gray-500 sm:text-lg dark:text-white">
-            Je suis là pour répondre à toutes vos demandes. Cliquez ci-dessous pour me contacter.
+            Votre moniteur guide de pêche, est la pour vous !
           </p>
           <Button
             onClick={() => setIsFormOpen(true)}
@@ -85,8 +85,19 @@ export default function ContactForm() {
                   <div className="space-y-2">
                     <Label htmlFor="name">Nom</Label>
                     <Input
-                      id="name"
-                      name="name"
+                      id="lastname"
+                      name="lastname"
+                      value={formState.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Prénom</Label>
+                    <Input
+                      id="firstname"
+                      name="firstname"
                       value={formState.name}
                       onChange={handleInputChange}
                       required

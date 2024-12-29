@@ -14,9 +14,12 @@ import {
 
 // Liste des images du carrousel
 const carouselImages = [
-  { src: "/test2.jpg", alt: "Pêcheur en action" },
-  { src: "/test3.jpg", alt: "Belle prise du jour" },
-  { src: "/test4.jpg", alt: "Paysage de pêche" },
+  { src: "/carroussel1.jpg", alt: "Pêcheur en action" },
+  { src: "/carroussel2.jpg", alt: "Belle prise du jour" },
+  { src: "/carroussel3.jpg", alt: "Paysage de pêche" },
+  { src: "/test2.jpg", alt: "Paysage de pêche" },
+  { src: "/carroussel7.jpg", alt: "Paysage de pêche" },
+  { src: "/carroussel6.jpg", alt: "Paysage de pêche" },
 ];
 
 export default function VotreGuidePage() {
@@ -38,20 +41,6 @@ export default function VotreGuidePage() {
           fill={true}
           className="object-cover w-full h-full"
         />
-        <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        style={{ fontFamily: '"DCC-Ash", sans-serif' }}
-      >
-        <h1
-          className="text-6xl md:text-6xl text-white text-center tracking-wider"
-          style={{ wordSpacing: '0.2em' }} // Ajoute un espacement entre les mots
-        >
-          VOTRE GUIDE DE PECHE
-        </h1>
-      </motion.div>
       </motion.div>
       {/* Contenu principal */}
       <main className="container mx-auto px-2 py-12">
@@ -63,7 +52,7 @@ export default function VotreGuidePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">À Propos de Votre Guide</h2>
+          <h2 className="text-5xl mb-6" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>A Propos de Votre Guide</h2>
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -118,32 +107,32 @@ export default function VotreGuidePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Expertise</h2>
+          <h2 className="text-5xl mb-6" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: MapPin,
-                title: "Pêche sur l'Aude",
+                title: "L'Aude, mon terrain de jeu",
                 description:
-                  "Maîtrise la rivière Aude sur le bout des doigts de part les nombreuses sessions de pêches pratiquées",
+                  "De nombreuses années d'études et de prospections sur le fleuve Aude, me permettent à ce jour de vous faire découvrir les meilleurs spots sauvages et peu péchés.",
               },
               {
                 icon: Fish,
-                title: "Pêche du Silure",
+                title: "La traque du spécimen",
                 description:
-                  "Expert dans la traque des grands moustachus. Venez vous confronter à des combats mémorables.",
+                  "Spécialisé dans la pêche du silure avec comme technique de prédilection le 'Clonk teaser', je pratique également les pêches plus traditionnelles comme le 'cassant'. En 2024 j'ai également inscrit un record de 261 cm sur l'Aude.",
               },
               {
                 icon: Award,
                 title: "Certification",
                 description:
-                  "Diplôme d'Etat 'BPJEPS' mention 'Pêche de Loisir' obtenu en 2024",
+                  "Diplômé d'Etat BPJEPS mention 'pêche de loisirs' obtenu le 25/11/2024.",
               },
               {
                 icon: Users,
                 title: "Tous Niveaux",
                 description:
-                  "Adapte les conseils à tous les niveaux, du débutant à l'expert et pour tous les publics.",
+                  "Adapte les conseils à tous niveaux, du débutant au confirmé et pour tous les publics.",
               },
             ].map((item, index) => (
               <motion.div
@@ -168,16 +157,16 @@ export default function VotreGuidePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Témoignages</h2>
+          <h2 className="text-5xl mb-6" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>Ils témoignent</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                name: "Marie L.",
-                text: "Une expérience inoubliable ! Le guide connaît vraiment son métier et les meilleurs coins de pêche.",
+                name: "Martin L.",
+                text: "C'était ma première expérience à la pêche du silure au clonk teaser, et c'était vraiment une journée exceptionnelle en compagnie d’Alexis ! Grâce à son expertise et son approche passionnée, j’ai vécu une expérience de pêche au silure inoubliable. Il a su trouver les meilleurs spots et m’a guidé avec des conseils précis qui ont fait toute la différence. " ,
               },
               {
-                name: "Thomas R.",
-                text: "J'ai appris plus en une journée qu'en des années de pêche en solitaire. Vraiment recommandé !",
+                name: "Jérémy S.",
+                text: "Grâce à ses conseils et à sa parfaite connaissance des lieux, nous avons eu de nombreuses touches, de superbes poissons, et même un silure impressionnant de 2 m ! Ce guide ne se contente pas de vous faire pêcher, il transmet sa passion avec une énergie communicative. Je recommande à 100 % pour une expérience mémorable !",
               },
             ].map((testimonial, index) => (
               <motion.div
@@ -201,7 +190,7 @@ export default function VotreGuidePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Galerie</h2>
+          <h2 className="text-5xl mb-6" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>Vos plus beaux sourires</h2>
           {carouselImages && carouselImages.length > 0 ? (
             <Carousel className="w-full max-w-3xl mx-auto">
               <CarouselContent>

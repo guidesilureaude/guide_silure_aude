@@ -79,7 +79,7 @@ export default function LandingPage() {
               className="text-5xl text-center text-foreground mb-8"
               style={{ fontFamily: '"DCC-Ash", sans-serif' }}
             >
-              PLONGEZ DANS UNE AVENTURE EXTREME !
+              LA TRAQUE DU SILURE COMMENCE ICI !
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
@@ -87,7 +87,7 @@ export default function LandingPage() {
               transition={{ duration: 1, delay: 0.3 }}
               className="text-lg text-center text-gray-700 dark:text-white max-w-3xl mx-auto leading-relaxed"
             >
-              Découvrez une expérience de pêche inoubliable avec Alex, votre guide certifié. Partez à la conquête du SILURE, notre géant des eaux douces, sur les rivières et lacs d’Aude et d’Ariège.
+              Découvrez une expérience de pêche inoubliable avec votre moniteur guide de pêche diplomé. Partez à la conquête du SILURE, notre géant d&apos;eau douce, sur le fleuve Aude et plans d&apos;eau Ariégeois.
             </motion.p>
 
             <motion.div
@@ -103,7 +103,7 @@ export default function LandingPage() {
                 className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg"
               >
                 <p className="text-lg text-gray-700 leading-relaxed text-center">
-                  Montez à bord de nos float-tubes, robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité, et sensations garanties !
+                  Embarquez à bord de float-tube robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité et sensations seront au rendez-vous !
                 </p>
               </motion.div>
               <motion.div
@@ -113,7 +113,7 @@ export default function LandingPage() {
                 className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg"
               >
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Défiez le Silure à la verticale, au leurre de surface ou avec ma spécialité : le clonk-teaser. Matériel robuste, pour des poissons dépassant 2m50 et 100kg !
+                  Défiez le Silure à la verticale, au leurre de surface ou avec ma spécialité : le clonk-teaser. Matériel robuste, pour des poissons pouvant dépasser 2m50 et 100kg !
                 </p>
               </motion.div>
             </motion.div>
@@ -125,7 +125,7 @@ export default function LandingPage() {
               className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8"
             >
               <p className="text-lg leading-relaxed text-center text-gray-700">
-                Que vous soyez débutant ou expert, je vous propose des journées conviviales, remplies de rires et de bonnes vibrations ! De 13 à 80 ans, venez vivre une aventure unique !
+                Que vous soyez débutant ou confirmé, je vous propose des journées conviviales, remplies de rires et de bonnes sensations ! De 13 à 80 ans, venez vivre une aventure extrême !
               </p>
             </motion.div>
 
@@ -136,10 +136,10 @@ export default function LandingPage() {
               className="flex justify-center mt-10"
             >
               <a
-                href="#services"
+                href="/tarifs"
                 className="bg-foreground text-primary font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-background transition-all duration-300"
               >
-                En savoir plus
+                Je plonge !
               </a>
             </motion.div>
           </div>
