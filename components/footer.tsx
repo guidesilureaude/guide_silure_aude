@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Facebook, Instagram } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,13 +19,16 @@ const Footer = () => {
           </div>
           <div>
             <h5 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-              Liens Rapides
+              Prestations
             </h5>
             <ul className="space-y-2">
-              {['Accueil', 'Fonctionnalités', 'Tarifs', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {item}
+              {[{ name: "Guidage silure", link: "/prestations/guidage-silure" },
+                { name: "Animation pêche enfants", link: "/prestations/animation-peche-enfants" },
+                { name: "Animation pêche au coup", link: "/prestations/animation-peche-au-coup" },
+                { name: "Autres animations", link: "/prestations/autres-animations" }].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.link} className="text-gray-400 hover:text-white transition-colors duration-300">
+                    {item.name}
                   </Link>
                 </li>
               ))}

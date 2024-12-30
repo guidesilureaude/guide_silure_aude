@@ -96,7 +96,7 @@ export function ServiceLayout({ title, description, imageSrc, additionalImages, 
                     alt={`Additional image ${index + 1}`}
                     width={400}
                     height={300}
-                    className="rounded-lg shadow-md"
+                    className="rounded-lg"
                   />
                 </motion.div>
               ))}

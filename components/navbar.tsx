@@ -46,11 +46,6 @@ const NavItems = () => (
             Animation pêche au coup
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/prestations/autres-animations" className="hover:bg-secondary px-2 py-1 rounded-md">
-            Autres animations
-          </Link>
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
     <Link

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
+import emailjs from 'emailjs-com'
 
 export default function ContactForm() {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -16,9 +17,12 @@ export default function ContactForm() {
     name: '',
     email: '',
     message: '',
+    subject: '',
+    honeypot: '', // Honeypot field
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -26,15 +30,45 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // Honeypot validation
+    if (formState.honeypot) {
+      console.warn("Honeypot field filled out, submission blocked.")
+      return
+    }
+
+    // Prevent repeated submissions
+    if (isSubmitting) {
+      setError('Votre message est déjà en cours d\'envoi.')
+      return
+    }
+
+    setError(null)
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 2000)) // Simulation d'envoi
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // Utilisation de la variable d'environnement
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // Utilisation de la variable d'environnement
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          message: formState.message,
+          subject: formState.subject,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! // Utilisation de la variable d'environnement
+      )
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error("Erreur lors de l'envoi du message :", err)
+      setError('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.')
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <div className="flex flex-col items-center space-y-6">
-      {/* Texte introductif */}
       {!isFormOpen && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +80,7 @@ export default function ContactForm() {
             💬 Besoin d&apos;un devis ou d&apos;une information ?
           </p>
           <p className="text-gray-500 sm:text-lg dark:text-white">
-            Votre moniteur guide de pêche, est la pour vous !
+            Votre moniteur guide de pêche, est là pour vous !
           </p>
           <Button
             onClick={() => setIsFormOpen(true)}
@@ -57,7 +91,6 @@ export default function ContactForm() {
         </motion.div>
       )}
 
-      {/* Formulaire */}
       {isFormOpen && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -71,7 +104,6 @@ export default function ContactForm() {
               <CardDescription>
                 Pour plus de renseignements, envoyez-moi un message et je vous répondrai rapidement.
               </CardDescription>
-              {/* Bouton de fermeture */}
               <Button
                 className="absolute top-2 right-2 p-1 bg-background text-foreground hover:bg-background hover:scale-105 hover:text-gray-600"
                 onClick={() => setIsFormOpen(false)}
@@ -85,19 +117,8 @@ export default function ContactForm() {
                   <div className="space-y-2">
                     <Label htmlFor="name">Nom</Label>
                     <Input
-                      id="lastname"
-                      name="lastname"
-                      value={formState.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full transition-all duration-300 focus:ring-2 focus:ring-purple-400"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Prénom</Label>
-                    <Input
-                      id="firstname"
-                      name="firstname"
+                      id="name"
+                      name="name"
                       value={formState.name}
                       onChange={handleInputChange}
                       required
@@ -118,7 +139,11 @@ export default function ContactForm() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject">Sujet</Label>
-                    <Select>
+                    <Select
+                      onValueChange={value =>
+                        setFormState(prev => ({ ...prev, subject: value }))
+                      }
+                    >
                       <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
@@ -141,6 +166,16 @@ export default function ContactForm() {
                       className="w-full h-32 transition-all duration-300 focus:ring-2 focus:ring-purple-400"
                     />
                   </div>
+                  <div className="hidden">
+                    <Input
+                      id="honeypot"
+                      name="honeypot"
+                      value={formState.honeypot}
+                      onChange={handleInputChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
@@ -153,6 +188,9 @@ export default function ContactForm() {
                     )}
                     {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                   </Button>
+                  {error && (
+                    <p className="text-sm text-red-500 mt-2">{error}</p>
+                  )}
                 </form>
               ) : (
                 <motion.div

@@ -11,13 +11,13 @@ const listItemVariants = {
 export default function RiverFishingPage() {
   return (
     <ServiceLayout
-      title="Animation pêche au coup"
+      title="ANIMATION PECHE AU COUP"
       description="Découvrez les joies de la pêche en rivière avec notre guide expert"
-      imageSrc="/test2.jpg"
+      imageSrc="/couverture-peche-au-coup.png"
       additionalImages={[
-        "/test3.jpg",
-        "/test4.jpg",
-        "/test2.jpg"
+        "/photo-peche-au-coup-1.png",
+        "/photo-peche-au-coup-2.png",
+        "/photo-peche-au-coup-3.png"
       ]}
     >
       <div className="space-y-12">

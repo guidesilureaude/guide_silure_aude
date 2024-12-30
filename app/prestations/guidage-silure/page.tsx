@@ -7,13 +7,13 @@ import { ServiceLayout } from '@/components/ServiceLayout'
 export default function RiverFishingPage() {
   return (
     <ServiceLayout
-      title="Votre Guidage Silure"
+      title="VOTRE GUIDAGE SILURE"
       description="PLONGEZ A LA DECOUVERTE DU SILURE AVEC VOTRE SPECIALISTE."
-      imageSrc="/test2.jpg"
+      imageSrc="/couverture-guidage.png"
       additionalImages={[
-        "/test3.jpg",
-        "/test4.jpg",
-        "/test2.jpg"
+        "/photo-guidage-1.png",
+        "/photo-guidage-2.png",
+        "/photo-guidage-3.png"
       ]}
     >
       <div className="space-y-12">

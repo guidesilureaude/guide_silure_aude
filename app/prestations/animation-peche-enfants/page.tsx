@@ -11,13 +11,13 @@ const listItemVariants = {
 export default function RiverFishingPage() {
   return (
     <ServiceLayout
-      title="Animation pêche enfants"
-      description="Découvrez les joies de la pêche en rivière avec notre guide expert"
-      imageSrc="/test2.jpg"
+      title="ANIMATION PECHE ENFANTS"
+      description="DECOUVREZ LES JOIES DE LA PECHE EN RIVIERE AVEC VOTRE GUIDE EXPERT."
+      imageSrc="/couverture-animation-silure.png"
       additionalImages={[
-        "/test3.jpg",
-        "/test4.jpg",
-        "/test2.jpg"
+        "/photo-animation-1.png",
+        "/photo-animation-2.png",
+        "/photo-animation-3.png"
       ]}
     >
       <div className="space-y-12">
