@@ -18,11 +18,33 @@ export default function ContactForm() {
     email: '',
     message: '',
     subject: '',
-    honeypot: '', // Honeypot field
+    honeypot: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Fonction de validation
+  const validateForm = () => {
+    const { name, email, message, subject } = formState
+
+    const nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s'-]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (!name || !nameRegex.test(name)) {
+      return 'Le nom est invalide. Veuillez utiliser uniquement des lettres et des espaces.'
+    }
+    if (!email || !emailRegex.test(email)) {
+      return 'L\'email est invalide. Veuillez entrer un email valide.'
+    }
+    if (!subject) {
+      return 'Veuillez sélectionner un sujet.'
+    }
+    if (!message || message.trim().length < 10) {
+      return 'Le message doit contenir au moins 10 caractères.'
+    }
+    return null
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -31,15 +53,19 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Honeypot validation
     if (formState.honeypot) {
       console.warn("Honeypot field filled out, submission blocked.")
       return
     }
 
-    // Prevent repeated submissions
     if (isSubmitting) {
       setError('Votre message est déjà en cours d\'envoi.')
+      return
+    }
+
+    const validationError = validateForm()
+    if (validationError) {
+      setError(validationError)
       return
     }
 
@@ -48,15 +74,15 @@ export default function ContactForm() {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // Utilisation de la variable d'environnement
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // Utilisation de la variable d'environnement
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: formState.name,
           from_email: formState.email,
           message: formState.message,
           subject: formState.subject,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! // Utilisation de la variable d'environnement
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       setIsSubmitting(false)
       setIsSubmitted(true)

@@ -103,7 +103,7 @@ export default function LandingPage() {
                 className="bg-white bg-opacity-80 text-foreground p-6 rounded-lg shadow-lg"
               >
                 <p className="text-lg text-gray-700 leading-relaxed text-center">
-                  Embarquez à bord de float-tube robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité et sensations seront au rendez-vous !
+                  Embarquez à bord de floats-tubes robustes et fun, équipés de moteurs et sondeurs. Stabilité, sécurité et sensations seront au rendez-vous !
                 </p>
               </motion.div>
               <motion.div

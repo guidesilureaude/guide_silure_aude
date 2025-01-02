@@ -47,22 +47,25 @@ export function ServiceLayout({ title, description, imageSrc, additionalImages, 
         </motion.div>
         
         {/* Première image en couverture réduite en hauteur */}
-        <div className="mt-10 w-full h-80 relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={imageSrc}
-              alt={title}
-              layout="fill" // L'image occupe toute la largeur et la hauteur de son parent
-              objectFit="cover" // Recouvre toute l'image sans déformation
-              className="rounded-lg shadow-xl"
-            />
-          </motion.div>
-        </div>
+<div className="mt-10 w-full h-auto relative">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+    className="relative"
+  >
+    <Image
+      src={imageSrc}
+      alt={title}
+      layout="responsive" // Rend l'image responsive en fonction de la largeur du conteneur
+      width={1600} // Largeur de référence pour le ratio d'aspect
+      height={900} // Hauteur de référence pour le ratio d'aspect
+      objectFit="cover" // L'image couvre toute la surface sans déformation
+      className="rounded-lg shadow-xl"
+      priority // Améliore le chargement pour les images principales
+    />
+  </motion.div>
+</div>
 
         {/* Contenu sous l'image */}
         <div className="mt-10 flex flex-col lg:flex-row">

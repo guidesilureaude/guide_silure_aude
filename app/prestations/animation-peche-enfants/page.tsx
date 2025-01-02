@@ -3,16 +3,11 @@
 import { motion } from 'framer-motion'
 import { ServiceLayout } from '@/components/ServiceLayout'
 
-const listItemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0 }
-}
-
 export default function RiverFishingPage() {
   return (
     <ServiceLayout
-      title="ANIMATION PECHE ENFANTS"
-      description="DECOUVREZ LES JOIES DE LA PECHE EN RIVIERE AVEC VOTRE GUIDE EXPERT."
+      title="VOTRE ANIMATION SILURE ENFANTS"
+      description="UN PREMIER PLONGEON DANS LA DECOUVERTE DU SILURE."
       imageSrc="/couverture-animation-silure.png"
       additionalImages={[
         "/photo-animation-1.png",
@@ -21,20 +16,24 @@ export default function RiverFishingPage() {
       ]}
     >
       <div className="space-y-12">
-        <motion.section variants={listItemVariants}>
-          <h2 className="text-3xl font-bold text-gray-900">Déroulement de la journée</h2>
+        <motion.section>
+          <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>QU'APPORTE CETTE ANIMATION A VOS ENFANTS ?</h2>
           <ul className="mt-4 space-y-2">
             {[
-              "Rendez-vous tôt le matin au point de rencontre",
-              "Briefing sur les techniques de pêche et la sécurité",
-              "Exploration des meilleurs spots de pêche le long de la rivière",
-              "Pause déjeuner avec pique-nique au bord de l'eau",
-              "Poursuite de la pêche l'après-midi avec rotation des spots",
-              "Débriefing et partage des meilleures prises de la journée"
+              "Une journée d'évasion dans un milieu naturel.",
+              "Diverses connaissances du domaine piscicole et halieutique.",
+              "La découverte du département de l'Aude.",
+              "Divers contenus rendant l'animation 'amusante et ludique'.",
+              "Un contenu théorique sur le silure.",
+              "La mise en place d'un poste de pêche au cassant.",
+              "Le partage et la convivialité entre les pêcheurs.",
+              "Savoir se mettre en sécurité pour leurs prochaines parties de pêche.",
+              "L'apprentissage du respect de la nature.",
+              "Un dévotion totale à la réussite et l'apprentissage de vos enfants."
+
             ].map((item, index) => (
               <motion.li 
                 key={index} 
-                variants={listItemVariants}
                 className="flex items-center space-x-2"
               >
                 <span className="h-2 w-2 bg-blue-500 rounded-full"></span>
@@ -43,18 +42,19 @@ export default function RiverFishingPage() {
             ))}
           </ul>
         </motion.section>
-        <motion.section variants={listItemVariants}>
-          <h2 className="text-3xl font-bold text-gray-900">Équipement fourni</h2>
+        <motion.section>
+          <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>LE MATERIEL MIS A VOTRE DISPOSITION :</h2>
           <ul className="mt-4 space-y-2">
             {[
-              "Cannes à pêche adaptées à la rivière",
-              "Leurres et appâts variés",
-              "Gilet de sauvetage",
-              "Épuisette"
+              "Floats-tubes de haute qualité.",
+              "Cannes et moulinets haut de gamme.",
+              "Tout le matériel de montage.",
+              "Tapis de réception.",
+              "Gants, gilets de sauvetage, trousse de secours, ...",
+              "Différents appâts.",
             ].map((item, index) => (
               <motion.li 
                 key={index} 
-                variants={listItemVariants}
                 className="flex items-center space-x-2"
               >
                 <span className="h-2 w-2 bg-green-500 rounded-full"></span>
@@ -63,18 +63,17 @@ export default function RiverFishingPage() {
             ))}
           </ul>
         </motion.section>
-        <motion.section variants={listItemVariants}>
-          <h2 className="text-3xl font-bold text-gray-900">Points forts</h2>
+        <motion.section>
+          <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>LA PRESTATION NE COMPREND PAS : </h2>
           <ul className="mt-4 space-y-2">
             {[
-              "Découverte de spots secrets connus uniquement des locaux",
-              "Apprentissage des techniques spécifiques à la pêche en rivière",
-              "Possibilité de pêcher des truites, des ombres ou des barbeaux",
-              "Immersion totale dans la nature préservée"
+              "Pour cause d'hygiène, aucun waders n'est fourni pendant la prestation.",
+              "La carte de pêche",
+              "Les boissons et repas",
+              "La garantie de capture d'un poisson. Lui seul décide de se nourrir ou non."
             ].map((item, index) => (
               <motion.li 
                 key={index} 
-                variants={listItemVariants}
                 className="flex items-center space-x-2"
               >
                 <span className="h-2 w-2 bg-yellow-500 rounded-full"></span>

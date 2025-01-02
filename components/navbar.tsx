@@ -38,7 +38,7 @@ const NavItems = () => (
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link href="/prestations/animation-peche-enfants" className="hover:bg-secondary px-2 py-1 rounded-md">
-            Animation pêche enfants
+            Animation silure enfants
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>

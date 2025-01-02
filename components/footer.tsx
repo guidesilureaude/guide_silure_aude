@@ -23,9 +23,8 @@ const Footer = () => {
             </h5>
             <ul className="space-y-2">
               {[{ name: "Guidage silure", link: "/prestations/guidage-silure" },
-                { name: "Animation pêche enfants", link: "/prestations/animation-peche-enfants" },
-                { name: "Animation pêche au coup", link: "/prestations/animation-peche-au-coup" },
-                { name: "Autres animations", link: "/prestations/autres-animations" }].map((item) => (
+                { name: "Animation silure enfants", link: "/prestations/animation-peche-enfants" },
+                { name: "Animation pêche au coup", link: "/prestations/animation-peche-au-coup" }].map((item) => (
                 <li key={item.name}>
                   <Link href={item.link} className="text-gray-400 hover:text-white transition-colors duration-300">
                     {item.name}

@@ -24,7 +24,7 @@ const services = [
     slug: "/guidage-silure",
   },
   {
-    title: "Animation pêche enfants",
+    title: "Animation silure enfants",
     description: "Plongez dans l'aventure, à la découverte du silure avec des pêches ludiques du bord.",
     image: "/test4.jpg",
     slug: "/animation-peche-enfants",

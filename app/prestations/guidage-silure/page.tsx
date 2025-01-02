@@ -45,7 +45,7 @@ export default function RiverFishingPage() {
           <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>LE MATERIEL MIS A VOTRE DISPOSITION :</h2>
           <ul className="mt-4 space-y-2">
             {[
-              "Float-tubes de haute qualité équipés de moteur électrique et de sondeur.",
+              "Floats-tubes de haute qualité équipés de moteur électrique et de sondeur.",
               "Cannes et moulinets haut de gamme.",
               "Clonks, teasers, montures et autres accessoires.",
               "Tapis de réception",
@@ -68,6 +68,7 @@ export default function RiverFishingPage() {
             {[
               "Pour cause d'hygiène, aucun waders n'est fourni pendant la prestation.",
               "La carte de pêche",
+              "Les boissons et repas",
               "La garantie de capture d'un poisson. Lui seul décide de se nourrir ou non.",
             ].map((item, index) => (
               <motion.li 
