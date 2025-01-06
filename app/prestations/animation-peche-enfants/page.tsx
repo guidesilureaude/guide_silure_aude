@@ -17,7 +17,7 @@ export default function RiverFishingPage() {
     >
       <div className="space-y-12">
         <motion.section>
-          <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>QU'APPORTE CETTE ANIMATION A VOS ENFANTS ?</h2>
+          <h2 className="text-4xl text-gray-900" style={{ fontFamily: '"DCC-Ash", sans-serif' }}>QU&apos;APPORTE CETTE ANIMATION A VOS ENFANTS ?</h2>
           <ul className="mt-4 space-y-2">
             {[
               "Une journée d'évasion dans un milieu naturel.",

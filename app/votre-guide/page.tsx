@@ -163,7 +163,7 @@ export default function VotreGuidePage() {
                 />
                 <h3 className="text-xl font-semibold mb-2">Parution dans le journal</h3>
                 <p className="mb-4">
-                  Découvrez l'article qui met en lumière mon parcours et ma passion pour la pêche.
+                  Découvrez l&apos;article qui met en lumière mon parcours et ma passion pour la pêche.
                 </p>
                 <a
                   href="https://www.lindependant.fr/2024/10/25/cest-un-record-apres-un-combat-titanesque-il-peche-un-silure-geant-de-plus-de-2-m-60-12284133.php?fbclid=IwZXh0bgNhZW0CMTEAAR1VWpRNiJq1vPRoKx3npDgnbyEshFFMcuiXq5YbMlUYUhSrTRYcB6zuX7Y_aem_YNQaZLD3GpkVS60Nsd3G6Q&deeplink_ref_surface=instagram_direct&direct_share_include_copy=1&fb_entity_type=unknown#g2m88ify288l1v803tvu5wcwkblepaw"
@@ -171,7 +171,7 @@ export default function VotreGuidePage() {
                   rel="noopener noreferrer"
                   className="text-primary hover:underline font-semibold"
                 >
-                  Lire l'article complet
+                  Lire l&apos;article complet
                 </a>
               </motion.div>
             </div>
